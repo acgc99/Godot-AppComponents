@@ -16,6 +16,7 @@ This add-on is a collection of nodes for GUI design. They are intended to be the
 - [ACIconButton](#aciconbutton)
 - [ACIcon](#acicon)
 - [ACNavBar](#acnavbar)
+- [ACRoundClippingContainer](#acroundclippingcontainer)
 
 Note: only attributes designed to be modified are listed.
 
@@ -50,5 +51,13 @@ A `TextureRect` designed to hold an icon. That is `expand_mode = EXPAND_IGNORE_S
 ### `ACNavBar` <a name="acnavbar"></a>
 
 A `PanelContainer` with a different icon on the Edit to distinguish it from other nodes.
+
+### `ACRoundClippingContainer` <a name="acroundclippingcontainer"></a>
+
+A `PanelContainer` with `clip_children_mode = CLIP_CHILDREN_ONLY` to clip its children to its shape.
+
+To make this node work properly, you have to assign a `Theme` and fill a `PanelContainer` type with a `panel` not null. If `panel` has rounded corners and this node has a `TextureRect`/`ColorRect` child that occupies all node, its corners will be rounded.
+
+If your children look semitransparent, it is because of the theme.
 
 ## Contributing
