@@ -6,6 +6,7 @@
 #include <ac_icon.h>
 #include <ac_nav_bar.h>
 #include <ac_round_clipping_container.h>
+#include <ac_transition_control.h>
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -25,6 +26,7 @@ void initialize_ac(ModuleInitializationLevel p_level){
     ClassDB::register_class<ACIcon>();
     ClassDB::register_class<ACNavBar>();
     ClassDB::register_class<ACRoundClippingContainer>();
+    ClassDB::register_class<ACTransitionControl>();
 }
 
 
