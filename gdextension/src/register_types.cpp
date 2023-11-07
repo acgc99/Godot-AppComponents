@@ -4,7 +4,7 @@
 #include <ac_page.h>
 #include <ac_icon_button.h>
 #include <ac_icon.h>
-#include <ac_navbar.h>
+#include <ac_nav_bar.h>
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
