@@ -25,13 +25,13 @@ Image is requested when `url` or `extension` changes, so if you change the image
 
 Note that large images might require long loading and saving times.
 
-| String    | url       | "" |
-|-----------|-----------|----|
-| Extension | extension | 0  |
+| `String`    | `url`       | `""` |
+|-------------|-------------|------|
+| `Extension` | `extension` | `0`  |
 
 
 - `String url = ""`. Image URL.
-- `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga`, `.webp`.
+- `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga` and `.webp`.
 
 ### `ACPage` <a name="acpage"></a>
 
