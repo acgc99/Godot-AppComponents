@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+
+# GDExtension
+gdextension/godot-cpp/
+gdextension/.vscode/
+gdextension/bin/
+gdextension/.sconsign.dblite
+gdextension/compile_commands.json

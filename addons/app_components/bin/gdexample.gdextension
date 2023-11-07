@@ -1,0 +1,11 @@
+[configuration]
+entry_symbol = "ac_init"
+compatibility_minimum = 4.2
+
+[libraries]
+windows.debug.x86_64 = "res://addons/app_components/bin/app_components.windows.template_debug.x86_64.dll"
+
+[icons]
+ACHTTPImage = "res://addons/app_components/icons/image.svg"
+ACPage = "res://addons/app_components/icons/page-layout-header.svg"
+ACIconButton = "res://addons/app_components/icons/radiobox-marked.svg"
