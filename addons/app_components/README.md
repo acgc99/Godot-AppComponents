@@ -14,6 +14,7 @@ This add-on is a collection of nodes for GUI design. They are intended to be the
 - [ACHTTPImage](#achttpimage)
 - [ACPage](#acpage)
 - [ACIconButton](#aciconbutton)
+- [ACIcon](#acicon)
 
 Note: only attributes designed to be modified are listed.
 
@@ -40,5 +41,9 @@ It is a `VBoxContainer` with no separation between its elements.
 ### `ACIconButton` <a name="aciconbutton"></a>
 
 It is a `Button` with the attributes designed to contain only an icon.
+
+### `ACIcon` <a name="acicon"></a>
+
+A `TextureRect` designed to hold an icon. That is `expand_mode = EXPAND_IGNORE_SIZE` and `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED`.
 
 ## Contributing

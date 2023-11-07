@@ -9,3 +9,4 @@ windows.debug.x86_64 = "res://addons/app_components/bin/app_components.windows.t
 ACHTTPImage = "res://addons/app_components/icons/image.svg"
 ACPage = "res://addons/app_components/icons/page-layout-header.svg"
 ACIconButton = "res://addons/app_components/icons/radiobox-marked.svg"
+ACIcon = "res://addons/app_components/icons/circle.svg"

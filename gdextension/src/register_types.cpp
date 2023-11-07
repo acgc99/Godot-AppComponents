@@ -3,6 +3,7 @@
 #include <ac_http_image.h>
 #include <ac_page.h>
 #include <ac_icon_button.h>
+#include <ac_icon.h>
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -19,6 +20,7 @@ void initialize_ac(ModuleInitializationLevel p_level){
     ClassDB::register_class<ACHTTPImage>();
     ClassDB::register_class<ACPage>();
     ClassDB::register_class<ACIconButton>();
+    ClassDB::register_class<ACIcon>();
 }
 
 
