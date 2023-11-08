@@ -4,7 +4,6 @@
 #include <ac_page.h>
 #include <ac_icon_button.h>
 #include <ac_icon.h>
-#include <ac_nav_bar.h>
 #include <ac_round_clipping_container.h>
 #include <ac_transition_control.h>
 
@@ -24,7 +23,6 @@ void initialize_ac(ModuleInitializationLevel p_level){
     ClassDB::register_class<ACPage>();
     ClassDB::register_class<ACIconButton>();
     ClassDB::register_class<ACIcon>();
-    ClassDB::register_class<ACNavBar>();
     ClassDB::register_class<ACRoundClippingContainer>();
     ClassDB::register_class<ACTransitionControl>();
 }
