@@ -13,7 +13,7 @@ func _on_nav_bar_pressed_left() -> void:
 
 
 func _on_nav_bar_pressed_right() -> void:
-	print("Pressed left")
+	print("Pressed right")
 
 
 func _on_transition_finished() -> void:

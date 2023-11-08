@@ -63,6 +63,9 @@ Vector2 ACTransitionControl::get_initial_scale() const {
 }
 
 void ACTransitionControl::transite(){
+	if(_tween != NULL && _tween->is_running()){
+		_tween->kill();
+	}
 	if(animation == ANIMATION_VANISH){
 		_transit_vanish();
 	}

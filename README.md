@@ -14,9 +14,9 @@ With these components you design widgets as independent scenes, that are then at
 
 ## List of components:
 - [ACHTTPImage](#achttpimage)
-- [ACPageContainer](#acpagecontainer)
-- [ACIconButton](#aciconbutton)
 - [ACIcon](#acicon)
+- [ACIconButton](#aciconbutton)
+- [ACPageContainer](#acpagecontainer)
 - [ACRoundClippingContainer](#acroundclippingcontainer)
 - [ACTransitionControl](#actransitioncontrol)
 
@@ -38,17 +38,17 @@ Note that large images might require long loading and saving times.
 - `String url = ""`. Image URL.
 - `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga` and `.webp`.
 
-### `ACPageContainer` <a name="acpagecontainer"></a>
+### `ACIcon` <a name="acicon"></a>
 
-It is a `VBoxContainer` with no separation between its elements.
+A `TextureRect` designed to hold an icon. That is `expand_mode = EXPAND_IGNORE_SIZE` and `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED`.
 
 ### `ACIconButton` <a name="aciconbutton"></a>
 
 It is a `Button` with the attributes designed to contain only an icon.
 
-### `ACIcon` <a name="acicon"></a>
+### `ACPageContainer` <a name="acpagecontainer"></a>
 
-A `TextureRect` designed to hold an icon. That is `expand_mode = EXPAND_IGNORE_SIZE` and `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED`.
+It is a `VBoxContainer` with no separation between its elements.
 
 ### `ACRoundClippingContainer` <a name="acroundclippingcontainer"></a>
 
@@ -64,6 +64,7 @@ A `Control` node with a `Tween` for animations designed for transition between p
 
 Notes:
 - You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs.
+- This node uses a `Tween` for animations. When you call `transite`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. Check `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
 
 Methods:
 - `transite`. Start animation.
@@ -83,6 +84,22 @@ Attributes:
 ![tweening_cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp) 
 
 ## Contributing <a name="contributing"></a>
+
+Code style:
+- Follow [Godot style guidelines](https://docs.godotengine.org/en/stable/contributing/development/code_style_guidelines.html) (read until the end).
+- In `.h`:
+  - Public enums.
+  - Private. Attributes.
+  - Protected. `_bind_methods` and `_notification`.
+  - Public. Setters and getters. Setter parameter is called `p_<attribute>`, for each attribute.
+- In `.cpp`:
+  - Setters and getters
+  - Public methods
+  - Private methods
+  - `_bind_methods`. Follow same order when binding at `_bind_methods`, then enums and signals at end.
+  - Constructor and destructor.
+- One empty line between functions.
+- Empty lines must not contain tabs or whitespaces.
 
 ## Project Showcase <a name="projectshowcase"></a>
 
