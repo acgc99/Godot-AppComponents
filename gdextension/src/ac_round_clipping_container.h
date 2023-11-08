@@ -1,5 +1,5 @@
 #ifndef AC_ROUND_CLIPPING_CONTAINER_H
-#define AC_NAVBAC_ROUND_CLIPPING_CONTAINER_HAR_H
+#define AC_ROUND_CLIPPING_CONTAINER_H
 
 #include <godot_cpp/classes/panel_container.hpp>
 
