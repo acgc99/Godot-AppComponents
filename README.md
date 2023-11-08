@@ -14,7 +14,7 @@ With these components you design widgets as independent scenes, that are then at
 
 ## List of components:
 - [ACHTTPImage](#achttpimage)
-- [ACPage](#acpage)
+- [ACPageContainer](#acpagecontainer)
 - [ACIconButton](#aciconbutton)
 - [ACIcon](#acicon)
 - [ACRoundClippingContainer](#acroundclippingcontainer)
@@ -38,7 +38,7 @@ Note that large images might require long loading and saving times.
 - `String url = ""`. Image URL.
 - `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga` and `.webp`.
 
-### `ACPage` <a name="acpage"></a>
+### `ACPageContainer` <a name="acpagecontainer"></a>
 
 It is a `VBoxContainer` with no separation between its elements.
 
@@ -88,4 +88,4 @@ Attributes:
 
 The project showcase is in the GitHub repository. It is a showcase of what you can do with this add-on.
 
-Notice that for the `Background` and `Contents` scenes, the size is not the full window size, the `NavBar` height is subtracted. This is not mandatory, but recommended, since these are the dimensions when integrated on `ACPage`.
+Notice that for the `Background` and `Contents` scenes, the size is not the full window size, the `NavBar` height is subtracted. This is not mandatory, but recommended, since these are the dimensions when integrated on `ACPageContainer`.

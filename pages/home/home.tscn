@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0b14i")
 
-[node name="ACPage" type="ACPage" parent="."]
+[node name="ACPageContainer" type="ACPageContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,13 +23,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NavBar" parent="ACPage" instance=ExtResource("2_ny4a1")]
+[node name="NavBar" parent="ACPageContainer" instance=ExtResource("2_ny4a1")]
 layout_mode = 2
 
-[node name="Background" parent="ACPage" instance=ExtResource("3_uiket")]
+[node name="Background" parent="ACPageContainer" instance=ExtResource("3_uiket")]
 layout_mode = 2
 
-[node name="Contents" parent="ACPage/Background" instance=ExtResource("4_1axxh")]
+[node name="Contents" parent="ACPageContainer/Background" instance=ExtResource("4_1axxh")]
 layout_mode = 1
 offset_bottom = 0.0
 
@@ -37,6 +37,6 @@ offset_bottom = 0.0
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 
-[connection signal="pressed_left" from="ACPage/NavBar" to="." method="_on_nav_bar_pressed_left"]
-[connection signal="pressed_right" from="ACPage/NavBar" to="." method="_on_nav_bar_pressed_right"]
+[connection signal="pressed_left" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_left"]
+[connection signal="pressed_right" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_right"]
 [connection signal="finished" from="Transition" to="." method="_on_transition_finished"]

@@ -1,7 +1,7 @@
 #include <register_types.h>
 
 #include <ac_http_image.h>
-#include <ac_page.h>
+#include <ac_page_container.h>
 #include <ac_icon_button.h>
 #include <ac_icon.h>
 #include <ac_round_clipping_container.h>
@@ -20,7 +20,7 @@ void initialize_ac(ModuleInitializationLevel p_level){
         return;
     }
     ClassDB::register_class<ACHTTPImage>();
-    ClassDB::register_class<ACPage>();
+    ClassDB::register_class<ACPageContainer>();
     ClassDB::register_class<ACIconButton>();
     ClassDB::register_class<ACIcon>();
     ClassDB::register_class<ACRoundClippingContainer>();
