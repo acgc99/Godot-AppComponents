@@ -2,6 +2,8 @@
 
 This add-on is a collection of nodes for GUI design. They are intended to be the building blocks for you app, not the final widgets.
 
+With these components you design widgets as independent scenes, that are then attached to the pages/screens of your app (see [Project Showcase](#projectshowcase).
+
 | About      | Current Release                     |
 |------------|-------------------------------------|
 | Version    | 1.0.0 **(under development)**       |
@@ -65,6 +67,9 @@ If your children look semitransparent, it is because of the theme.
 
 A `Control` node with a `Tween` for animations designed for transition between pages, pop-ups or many other things.
 
+Notes:
+- You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs.
+
 Methods:
 - `transite`. Start animation.
 
@@ -82,4 +87,10 @@ Attributes:
 
 ![tweening_cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp) 
 
-## Contributing
+## Contributing <a name="contributing"></a>
+
+## Project Showcase <a name="projectshowcase"></a>
+
+The project showcase is in the GitHub repository. It is a showcase of what you can do with this add-on.
+
+Notice that for the `Background` and `Contents` scenes, the size is not the full window size, the `NavBar` height is subtracted. This is not mandatory, but recommended, since these are the dimensions when integrated on `ACPage`.

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfwtune6ed11b"]
+
+[ext_resource type="Script" path="res://pages/home/contents.gd" id="1_g6otj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbmmu"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_pu06h"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_sbmmu")
+
+[node name="Contents" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_g6otj")
+
+[node name="ACRoundClippingContainer" type="ACRoundClippingContainer" parent="."]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_pu06h")
+
+[node name="ColorRect" type="ColorRect" parent="ACRoundClippingContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ACRoundClippingContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ACRoundClippingContainer"
+horizontal_alignment = 1
+vertical_alignment = 1
