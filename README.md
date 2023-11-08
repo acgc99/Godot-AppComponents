@@ -17,7 +17,6 @@ With these components you design widgets as independent scenes, that are then at
 - [ACPage](#acpage)
 - [ACIconButton](#aciconbutton)
 - [ACIcon](#acicon)
-- [ACNavBar](#acnavbar)
 - [ACRoundClippingContainer](#acroundclippingcontainer)
 - [ACTransitionControl](#actransitioncontrol)
 
@@ -50,10 +49,6 @@ It is a `Button` with the attributes designed to contain only an icon.
 ### `ACIcon` <a name="acicon"></a>
 
 A `TextureRect` designed to hold an icon. That is `expand_mode = EXPAND_IGNORE_SIZE` and `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED`.
-
-### `ACNavBar` <a name="acnavbar"></a>
-
-A `PanelContainer` with a different icon on the Edit to distinguish it from other nodes.
 
 ### `ACRoundClippingContainer` <a name="acroundclippingcontainer"></a>
 
