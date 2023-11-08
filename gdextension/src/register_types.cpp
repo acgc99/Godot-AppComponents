@@ -1,19 +1,18 @@
-#include <register_types.h>
+#include "register_types.h"
 
-#include <ac_http_image.h>
-#include <ac_page_container.h>
-#include <ac_icon_button.h>
-#include <ac_icon.h>
-#include <ac_round_clipping_container.h>
-#include <ac_transition_control.h>
+#include "ac_http_image.h"
+#include "ac_icon_button.h"
+#include "ac_icon.h"
+#include "ac_page_container.h"
+#include "ac_round_clipping_container.h"
+#include "ac_transition_control.h"
 
-#include <gdextension_interface.h>
-#include <godot_cpp/core/defs.hpp>
-#include <godot_cpp/core/class_db.hpp>
-#include <godot_cpp/godot.hpp>
+#include "gdextension_interface.h"
+#include "godot_cpp/core/class_db.hpp"
+#include "godot_cpp/core/defs.hpp"
+#include "godot_cpp/godot.hpp"
 
 using namespace godot;
-
 
 void initialize_ac(ModuleInitializationLevel p_level){
     if(p_level != MODULE_INITIALIZATION_LEVEL_SCENE){
@@ -27,13 +26,11 @@ void initialize_ac(ModuleInitializationLevel p_level){
     ClassDB::register_class<ACTransitionControl>();
 }
 
-
 void uninitialize_ac(ModuleInitializationLevel p_level){
     if(p_level != MODULE_INITIALIZATION_LEVEL_SCENE){
         return;
     }
 }
-
 
 extern "C"{
     GDExtensionBool GDE_EXPORT ac_init(
