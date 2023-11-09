@@ -1,7 +1,6 @@
 @icon("res://editor/icons/list-box.svg")
 extends ACTransitionControl
 
-## TODO: improvement: when outside screen, do not draw
 
 var is_open: bool = false
 

@@ -120,6 +120,33 @@ void ACTransitionControl::transite(){
 	else if(animation == ANIMATION_SHRINK_CENTER){
 		_transit_shrink_center();
 	}
+	else if(animation == ANIMATION_EXPAND_LEFT){
+		_transit_expand_left();
+	}
+	else if(animation == ANIMATION_EXPAND_LEFT_UP){
+		_transit_expand_left_up();
+	}
+	else if(animation == ANIMATION_EXPAND_UP){
+		_transit_expand_up();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT_UP){
+		_transit_expand_right_up();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT){
+		_transit_expand_right();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT_DOWN){
+		_transit_expand_right_down();
+	}
+	else if(animation == ANIMATION_EXPAND_DOWN){
+		_transit_expand_down();
+	}
+	else if(animation == ANIMATION_EXPAND_LEFT_DOWN){
+		_transit_expand_left_down();
+	}
+	else if(animation == ANIMATION_EXPAND_CENTER){
+		_transit_expand_center();
+	}
 }
 
 void ACTransitionControl::_reset_properties(){
@@ -246,6 +273,64 @@ void ACTransitionControl::_transit_shrink_center(){
 	_tween->parallel()->tween_property(this, "position:y", initial_position.y + get_size().y/2.0, duration)->set_ease(ease)->set_trans(transition);
 }
 
+void ACTransitionControl::_transit_expand_left(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_left_up(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_up(){
+	_create_tween();
+	_tween->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_right_up(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:x", initial_position.x - get_size().x, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_right(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:x", initial_position.x - get_size().x, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_right_down(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:x", initial_position.x - get_size().x, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:y", initial_position.y - get_size().y, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_down(){
+	_create_tween();
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:y", initial_position.y - get_size().y, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_left_down(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:y", initial_position.y - get_size().y, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_transit_expand_center(){
+	_create_tween();
+	_tween->tween_property(this, "scale:x", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:x", initial_position.x - get_size().x/2.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
+	_tween->parallel()->tween_property(this, "position:y", initial_position.y - get_size().y/2.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
 void ACTransitionControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("set_duration", "duration"), &ACTransitionControl::set_duration);
 	ClassDB::bind_method(D_METHOD("get_duration"), &ACTransitionControl::get_duration);
@@ -266,7 +351,7 @@ void ACTransitionControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("_on_tween_finished"), &ACTransitionControl::_on_tween_finished);
 
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
-	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Vanish,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center"), "set_animation", "get_animation");
+	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Vanish,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center"), "set_animation", "get_animation");
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "ease", PROPERTY_HINT_ENUM, "In,Out,In Out,Out In"), "set_ease", "get_ease");
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "transition", PROPERTY_HINT_ENUM, "Linear,Sine,Quint,Quart,Quad,Expo,Elastic,Cubic,Circ,Bounce,Back,Spring"), "set_transition", "get_transition");
 	ADD_SUBGROUP("Initial", "initial");
@@ -292,6 +377,15 @@ void ACTransitionControl::_bind_methods(){
 	BIND_ENUM_CONSTANT(ANIMATION_SHRINK_DOWN);
 	BIND_ENUM_CONSTANT(ANIMATION_SHRINK_LEFT_DOWN);
 	BIND_ENUM_CONSTANT(ANIMATION_SHRINK_CENTER);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_LEFT);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_LEFT_UP);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_UP);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_RIGHT_UP);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_RIGHT);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_RIGHT_DOWN);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_DOWN);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_LEFT_DOWN);
+	BIND_ENUM_CONSTANT(ANIMATION_EXPAND_CENTER);
 
 	ADD_SIGNAL(MethodInfo("finished"));
 }

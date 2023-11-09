@@ -29,7 +29,16 @@ namespace godot{
 				ANIMATION_SHRINK_RIGHT_DOWN,
 				ANIMATION_SHRINK_DOWN,
 				ANIMATION_SHRINK_LEFT_DOWN,
-				ANIMATION_SHRINK_CENTER
+				ANIMATION_SHRINK_CENTER,
+				ANIMATION_EXPAND_LEFT,
+				ANIMATION_EXPAND_LEFT_UP,
+				ANIMATION_EXPAND_UP,
+				ANIMATION_EXPAND_RIGHT_UP,
+				ANIMATION_EXPAND_RIGHT,
+				ANIMATION_EXPAND_RIGHT_DOWN,
+				ANIMATION_EXPAND_DOWN,
+				ANIMATION_EXPAND_LEFT_DOWN,
+				ANIMATION_EXPAND_CENTER
 			};
 
 		private:
@@ -65,6 +74,15 @@ namespace godot{
 			void _transit_shrink_down();
 			void _transit_shrink_left_down();
 			void _transit_shrink_center();
+			void _transit_expand_left();
+			void _transit_expand_left_up();
+			void _transit_expand_up();
+			void _transit_expand_right_up();
+			void _transit_expand_right();
+			void _transit_expand_right_down();
+			void _transit_expand_down();
+			void _transit_expand_left_down();
+			void _transit_expand_center();
 
 		protected:
 			static void _bind_methods();

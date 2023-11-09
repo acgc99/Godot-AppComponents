@@ -18,7 +18,6 @@ layout_mode = 1
 
 [node name="NavDrawer" parent="." instance=ExtResource("2_nfr3r")]
 animation = 5
-transition = 11
 layout_mode = 1
 offset_left = -900.0
 offset_right = -900.0
