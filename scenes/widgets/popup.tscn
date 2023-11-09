@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://o05yqtsvhx0u"]
+[gd_scene load_steps=7 format=3 uid="uid://bjr6kjgs1uuxq"]
 
-[ext_resource type="Script" path="res://scenes/widgets/popup.gd" id="1_57s5u"]
+[ext_resource type="Script" path="res://scenes/widgets/popup.gd" id="1_xg1qm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m204u"]
-bg_color = Color(0.6, 0.6, 0.6, 0.4)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh713"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
 
-[node name="Popup" type="ACTransitionControl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rm1kc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5lxc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvay0"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhvyy"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5)
+
+[node name="Popup" type="ACAnimatedControl"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_57s5u")
+script = ExtResource("1_xg1qm")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -21,32 +33,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_m204u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_m204u")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m204u")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_m204u")
-theme_override_styles/focus = SubResource("StyleBoxFlat_m204u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wh713")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rm1kc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n5lxc")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jvay0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xhvyy")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(540, 960)
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 500
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Button/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Popup"
+text = "This is a popup."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="finished" from="." to="." method="_on_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var drawer: Control = $NavDrawer
+@onready var drawer: ACAnimatedControl = $NavDrawer
 
 
 func open_drawer() -> void:

@@ -1,7 +1,8 @@
 extends Control
 
 
-@onready var popup: Control = $Popup
+@onready var popup: ACAnimatedControl = $Popup
+
 
 
 func _on_nav_bar_pressed_left() -> void:

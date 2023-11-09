@@ -17,14 +17,37 @@ Lastly, this add-on has been tested on Windows 11 64-bits, I compiled it for oth
 | Author     | [acgc99](https://github.com/acgc99) |
 
 ## List of components:
+- [ACAnimatedControl](#acanimatedcontrol)
 - [ACHTTPImage](#achttpimage)
 - [ACIcon](#acicon)
 - [ACIconButton](#aciconbutton)
 - [ACPageContainer](#acpagecontainer)
 - [ACRoundClippingContainer](#acroundclippingcontainer)
-- [ACTransitionControl](#actransitioncontrol)
 
 Note: only attributes designed to be modified are listed.
+
+### `ACAnimatedControl` <a name="acanimatedcontrol"></a>
+
+A `Control` node with a `Tween` for animations designed for transition between pages, pop-ups or many other things.
+
+Notes:
+- You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs and scene tree structure (read about `mouse_filter`).
+- This node uses a `Tween` for animations. When you call `animate`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. Check `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
+- Animations modify `position`, `scale` and `modulate.a`. If you want to reset those attributes, do it via code or playing the opposite animation.
+
+Methods:
+- `animate`. Start animation.
+
+Signals:
+- `finished`. Emitted when `Tween` animation finishes.
+
+Attributes:
+- `float duarion = 1.0`. Animation duration in seconds.
+- `Animation animation = ANIMATION_APPEAR`. Possible animations: appear/disappear, transition left/left-up/up/right-up/right/right-down/down/left-down/ (node is moved on that direction the same quantity as its width/height), shrink left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to zero shrinking to that corner) and expand left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to 1 growing from that corner).
+- `Tween.EaseType ease = EASE_IN_OUT`.
+- `Tween.TransitionType transition = Tween.TRANS_LINEAR`.
+
+![tweening_cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp) 
 
 ### `ACHTTPImage` <a name="achttpimage"></a>
 
@@ -33,11 +56,6 @@ It works similar to `TextureRect`, but it requires an URL pointing to some image
 Image is requested when `url` or `extension` changes, so if you change the image manually (`texture`), it will not be reset, you have to enter the `url` or `extension` again.
 
 Note that large images might require long loading and saving times.
-
-| `String`    | `url`       | `""` |
-|-------------|-------------|------|
-| `Extension` | `extension` | `0`  |
-
 
 - `String url = ""`. Image URL.
 - `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga` and `.webp`.
@@ -61,31 +79,6 @@ A `PanelContainer` with `clip_children_mode = CLIP_CHILDREN_ONLY` to clip its ch
 To make this node work properly, you have to assign a `Theme` and fill a `PanelContainer` type with a `panel` not null. If `panel` has rounded corners and this node has a `TextureRect`/`ColorRect` child that occupies all node, its corners will be rounded.
 
 If your children look semitransparent, it is because of the theme.
-
-### `ACTransitionControl` <a name="actransitioncontrol"></a>
-
-A `Control` node with a `Tween` for animations designed for transition between pages, pop-ups or many other things.
-
-Notes:
-- You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs.
-- This node uses a `Tween` for animations. When you call `transite`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. Check `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
-
-Methods:
-- `transite`. Start animation.
-
-Signals:
-- `finished`. Emitted when `Tween` animation finishes.
-
-Attributes:
-- `float duarion = 1.0`. Animation duration in seconds.
-- `Animation animation = ANIMATION_VANISH`. Possible animations: vanish (node is made invisible), transition left/left-up/up/right-up/right/right-down/down/left-down/ (node is moved on that direction the same quantity as its width/height) and shrink left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to zero).
-- `Tween.EaseType ease = EASE_IN_OUT`.
-- `Tween.TransitionType transition = Tween.TRANS_LINEAR`.
-- `float initial_alpha = 1.0`. The animation starts with this `modulate.a`.
-- `Vector2 initial_position = Vector2(0, 0)`. The animation starts with this `position`.
-- `Vector2 initial_scale = Vector2(1, 1)`. The animation starts with this `scale`.
-
-![tweening_cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp) 
 
 ## Contributing <a name="contributing"></a>
 

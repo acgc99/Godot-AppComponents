@@ -5,7 +5,7 @@
 #include "ac_icon.h"
 #include "ac_page_container.h"
 #include "ac_round_clipping_container.h"
-#include "ac_transition_control.h"
+#include "ac_animated_control.h"
 
 #include "gdextension_interface.h"
 #include "godot_cpp/core/class_db.hpp"
@@ -23,7 +23,7 @@ void initialize_ac(ModuleInitializationLevel p_level){
     ClassDB::register_class<ACIconButton>();
     ClassDB::register_class<ACIcon>();
     ClassDB::register_class<ACRoundClippingContainer>();
-    ClassDB::register_class<ACTransitionControl>();
+    ClassDB::register_class<ACAnimatedControl>();
 }
 
 void uninitialize_ac(ModuleInitializationLevel p_level){

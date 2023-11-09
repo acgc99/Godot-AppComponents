@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7jp13o5lq7un" path="res://scenes/pages/home/navbar.tscn" id="2_ny4a1"]
 [ext_resource type="PackedScene" uid="uid://b7qkkd8hpdbyu" path="res://scenes/pages/home/background.tscn" id="3_uiket"]
 [ext_resource type="PackedScene" uid="uid://dfwtune6ed11b" path="res://scenes/pages/home/contents.tscn" id="4_1axxh"]
-[ext_resource type="PackedScene" uid="uid://o05yqtsvhx0u" path="res://scenes/widgets/popup.tscn" id="5_dpm5t"]
+[ext_resource type="PackedScene" uid="uid://bjr6kjgs1uuxq" path="res://scenes/widgets/popup.tscn" id="5_kayft"]
 
 [node name="HomePage" type="Control"]
 layout_mode = 3
@@ -33,8 +33,13 @@ layout_mode = 2
 layout_mode = 1
 offset_bottom = 0.0
 
-[node name="Popup" parent="." instance=ExtResource("5_dpm5t")]
+[node name="Popup" parent="." instance=ExtResource("5_kayft")]
 layout_mode = 1
+offset_left = 360.0
+offset_top = 640.0
+offset_right = 360.0
+offset_bottom = 640.0
+scale = Vector2(1e-05, 1e-05)
 
 [connection signal="pressed_left" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_left"]
 [connection signal="pressed_right" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_right"]

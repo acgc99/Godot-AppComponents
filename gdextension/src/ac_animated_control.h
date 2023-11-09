@@ -1,5 +1,5 @@
-#ifndef AC_TRANSITION_CONTROL_H
-#define AC_TRANSITION_CONTROL_H
+#ifndef AC_ANIMATED_CONTROL_H
+#define AC_ANIMATED_CONTROL_H
 
 #include "godot_cpp/classes/control.hpp"
 #include "godot_cpp/classes/property_tweener.hpp"
@@ -7,8 +7,8 @@
 
 namespace godot{
 
-	class ACTransitionControl: public Control{
-		GDCLASS(ACTransitionControl, Control)
+	class ACAnimatedControl: public Control{
+		GDCLASS(ACAnimatedControl, Control)
 
 		public:
 			enum Animation {
@@ -44,7 +44,7 @@ namespace godot{
 
 		private:
 			double duration = 1.0;
-			ACTransitionControl::Animation animation = ANIMATION_APPEAR;
+			ACAnimatedControl::Animation animation = ANIMATION_APPEAR;
 			Tween::EaseType ease = Tween::EASE_IN_OUT;
 			Tween::TransitionType transition = Tween::TRANS_LINEAR;
 
@@ -89,8 +89,8 @@ namespace godot{
 			void set_duration(const double p_duration);
 			double get_duration() const;
 
-			void set_animation(const ACTransitionControl::Animation p_animation);
-			ACTransitionControl::Animation get_animation() const;
+			void set_animation(const ACAnimatedControl::Animation p_animation);
+			ACAnimatedControl::Animation get_animation() const;
 
 			void set_transition(const Tween::TransitionType p_transition);
 			Tween::TransitionType get_transition() const;
@@ -100,11 +100,11 @@ namespace godot{
 
 			void animate();
 
-			ACTransitionControl();
-			~ACTransitionControl();
+			ACAnimatedControl();
+			~ACAnimatedControl();
 	};
 }
 
-VARIANT_ENUM_CAST(ACTransitionControl::Animation);
+VARIANT_ENUM_CAST(ACAnimatedControl::Animation);
 
-#endif AC_TRANSITION_CONTROL_H
+#endif AC_ANIMATED_CONTROL_H
