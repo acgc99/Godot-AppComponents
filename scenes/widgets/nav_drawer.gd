@@ -6,13 +6,15 @@ var is_open: bool = false
 
 
 func open() -> void:
-	animation = ACAnimatedControl.ANIMATION_TRANSLATE_RIGHT
-	animate()
+	if not is_running():
+		animation = ACAnimatedControl.ANIMATION_TRANSLATE_RIGHT
+		animate()
 
 
 func close() -> void:
-	animation = ACAnimatedControl.ANIMATION_TRANSLATE_LEFT
-	animate()
+	if not is_running():
+		animation = ACAnimatedControl.ANIMATION_TRANSLATE_LEFT
+		animate()
 
 
 func _on_finished() -> void:

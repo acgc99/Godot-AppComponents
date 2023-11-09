@@ -34,12 +34,14 @@ Notes:
 - You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs and scene tree structure (read about `mouse_filter`).
 - This node uses a `Tween` for animations. When you call `animate`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. Check `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
 - Animations modify `position`, `scale` and `modulate.a`. If you want to reset those attributes, do it via code or playing the opposite animation.
+- If you want to make sure that the animation is not called again while is being played (for example a pop-up that is dismissed when it is being shown), use `is_running()` method. This method is important for animations that modify `position` and `scale` because they are based of current `position` and `size`, therefore for example, if you are using `Animation.ANIMATION_TRANSLATE_LEFT` and you call this animation again without waiting the first to end, the final position will be the initial position minus`size.x` minus the quantity of `size.x` that the node had time to move on the first animation. However, you might not want to use this method for animations like `Animation.ANIMATE_APPEAR` and `Animation.ANIMATE_DISAPPEAR`.
 
 Methods:
-- `animate`. Start animation.
+- `void animate()`. Starts animation.
+- `bool is_running()`. Returns `true` is the animation is running, else `false`.
 
 Signals:
-- `finished`. Emitted when `Tween` animation finishes.
+- `finished()`. Emitted when `Tween` animation finishes.
 
 Attributes:
 - `float duarion = 1.0`. Animation duration in seconds.

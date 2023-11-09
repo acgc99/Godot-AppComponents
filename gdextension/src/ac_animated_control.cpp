@@ -38,6 +38,10 @@ Tween::TransitionType ACAnimatedControl::get_transition() const {
 	return transition;
 }
 
+bool ACAnimatedControl::is_running() const {
+	return _is_running;
+}
+
 void ACAnimatedControl::animate(){
 	if(_tween != NULL && _tween->is_running()){
 		_tween->kill();
@@ -131,10 +135,12 @@ void ACAnimatedControl::animate(){
 void ACAnimatedControl::_create_tween(){
 	_tween = create_tween();
 	_tween->connect("finished", Callable(this, "_on_tween_finished"));
+	_is_running = true;
 }
 
 void ACAnimatedControl::_on_tween_finished(){
 	emit_signal("finished");
+	_is_running = false;
 }
 
 void ACAnimatedControl::_animation_appear(){
@@ -317,6 +323,7 @@ void ACAnimatedControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("set_transition", "transition"), &ACAnimatedControl::set_transition);
 	ClassDB::bind_method(D_METHOD("get_transition"), &ACAnimatedControl::get_transition);
 
+	ClassDB::bind_method(D_METHOD("is_running"), &ACAnimatedControl::is_running);
 	ClassDB::bind_method(D_METHOD("animate"), &ACAnimatedControl::animate);
 	ClassDB::bind_method(D_METHOD("_on_tween_finished"), &ACAnimatedControl::_on_tween_finished);
 
