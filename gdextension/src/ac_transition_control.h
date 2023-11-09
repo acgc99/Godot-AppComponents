@@ -46,13 +46,9 @@ namespace godot{
 			ACTransitionControl::Animation animation = ANIMATION_VANISH;
 			Tween::EaseType ease = Tween::EASE_IN_OUT;
 			Tween::TransitionType transition = Tween::TRANS_LINEAR;
-			double initial_alpha = 1.0;
-			Vector2 initial_position = Vector2(0, 0);
-			Vector2 initial_scale = Vector2(1, 1);
 
 			Ref<Tween> _tween;
 
-			void _reset_properties();
 			void _create_tween();
 			void _on_tween_finished();
 
@@ -99,15 +95,6 @@ namespace godot{
 
 			void set_ease(const Tween::EaseType p_ease);
 			Tween::EaseType get_ease() const;
-
-			void set_initial_alpha(const double p_initial_alpha);
-			double get_initial_alpha() const;
-
-			void set_initial_position(const Vector2 p_initial_position);
-			Vector2 get_initial_position() const;
-
-			void set_initial_scale(const Vector2 p_initial_scale);
-			Vector2 get_initial_scale() const;
 
 			void animate();
 
