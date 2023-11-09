@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck7vlp8o404hs"]
+
+[ext_resource type="Script" path="res://scenes/pages/home/home.gd" id="1_0b14i"]
+[ext_resource type="PackedScene" uid="uid://c7jp13o5lq7un" path="res://scenes/pages/home/navbar.tscn" id="2_ny4a1"]
+[ext_resource type="PackedScene" uid="uid://b7qkkd8hpdbyu" path="res://scenes/pages/home/background.tscn" id="3_uiket"]
+[ext_resource type="PackedScene" uid="uid://dfwtune6ed11b" path="res://scenes/pages/home/contents.tscn" id="4_1axxh"]
+
+[node name="HomePage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0b14i")
+
+[node name="ACPageContainer" type="ACPageContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavBar" parent="ACPageContainer" instance=ExtResource("2_ny4a1")]
+layout_mode = 2
+
+[node name="Background" parent="ACPageContainer" instance=ExtResource("3_uiket")]
+layout_mode = 2
+
+[node name="Contents" parent="ACPageContainer/Background" instance=ExtResource("4_1axxh")]
+layout_mode = 1
+offset_bottom = 0.0
+
+[connection signal="pressed_left" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_left"]

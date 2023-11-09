@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7qkkd8hpdbyu"]
 
-[ext_resource type="Script" path="res://pages/home/background.gd" id="1_ym0kx"]
+[ext_resource type="Script" path="res://scenes/pages/home/background.gd" id="1_ym0kx"]
 
 [sub_resource type="Image" id="Image_fql47"]
 data = {

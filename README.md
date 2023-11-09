@@ -4,6 +4,10 @@ This add-on is a collection of nodes for GUI design. They are intended to be the
 
 With these components you design widgets as independent scenes, that are then attached to the pages/screens of your app (see [Project Showcase](#projectshowcase).
 
+Do not forget to check [Contributing](#contributing) if you are interested on this add-on.
+
+Lastly, this add-on has been tested on Windows 11 64-bits, I compiled it for other OS, but I could not test them. Feel free to open an issue is something is wrong.
+
 | About      | Current Release                     |
 |------------|-------------------------------------|
 | Version    | 1.0.0 **(under development)**       |
@@ -85,7 +89,10 @@ Attributes:
 
 ## Contributing <a name="contributing"></a>
 
-Code style:
+Anyone is welcomed to open a issue requesting a new component, improving already existing ones or reporting bugs.
+
+### Code style:
+
 - Follow [Godot style guidelines](https://docs.godotengine.org/en/stable/contributing/development/code_style_guidelines.html) (read until the end).
 - In `.h`:
   - Public enums.
@@ -100,6 +107,14 @@ Code style:
   - Constructor and destructor.
 - One empty line between functions.
 - Empty lines must not contain tabs or whitespaces.
+
+### Compiling
+
+The code you provide must be compiled and tested in all OS (if possible). Use:
+```
+scons platform=windows arch=x86_32
+scons platform=windows arch=x86_64
+```
 
 ## Project Showcase <a name="projectshowcase"></a>
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfwtune6ed11b"]
 
-[ext_resource type="Script" path="res://pages/home/contents.gd" id="1_g6otj"]
+[ext_resource type="Script" path="res://scenes/pages/home/contents.gd" id="1_g6otj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbmmu"]
 corner_radius_top_left = 50

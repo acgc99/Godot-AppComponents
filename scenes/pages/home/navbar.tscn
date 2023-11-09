@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7jp13o5lq7un"]
+
+[ext_resource type="Script" path="res://scenes/pages/home/navbar.gd" id="1_w2jkk"]
+[ext_resource type="Texture2D" uid="uid://br75lsyck4dme" path="res://rsc/icons/menu.png" id="2_fht5f"]
+
+[node name="NavBar" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+script = ExtResource("1_w2jkk")
+
+[node name="ACIconButtonLeft" type="ACIconButton" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+icon = ExtResource("2_fht5f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 64
+text = "Home"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ACIconButtonLeft" to="." method="_on_ac_icon_button_left_pressed"]
