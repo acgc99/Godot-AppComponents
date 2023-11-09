@@ -10,7 +10,7 @@ func open():
 	animation = ACTransitionControl.ANIMATION_EXPAND_CENTER
 	initial_position += size/2.0
 	initial_scale = Vector2.ZERO
-	transite()
+	animate()
 
 
 func close() -> void:
@@ -18,7 +18,7 @@ func close() -> void:
 	animation = ACTransitionControl.ANIMATION_SHRINK_CENTER
 	initial_position = position
 	initial_scale = Vector2.ONE
-	transite()
+	animate()
 
 
 func _on_button_pressed() -> void:

@@ -56,33 +56,33 @@ namespace godot{
 			void _create_tween();
 			void _on_tween_finished();
 
-			void _transit_vanish();
-			void _transit_translate_left();
-			void _transit_translate_left_up();
-			void _transit_translate_up();
-			void _transit_translate_right_up();
-			void _transit_translate_right();
-			void _transit_translate_right_down();
-			void _transit_translate_down();
-			void _transit_translate_left_down();
-			void _transit_shrink_left();
-			void _transit_shrink_left_up();
-			void _transit_shrink_up();
-			void _transit_shrink_right_up();
-			void _transit_shrink_right();
-			void _transit_shrink_right_down();
-			void _transit_shrink_down();
-			void _transit_shrink_left_down();
-			void _transit_shrink_center();
-			void _transit_expand_left();
-			void _transit_expand_left_up();
-			void _transit_expand_up();
-			void _transit_expand_right_up();
-			void _transit_expand_right();
-			void _transit_expand_right_down();
-			void _transit_expand_down();
-			void _transit_expand_left_down();
-			void _transit_expand_center();
+			void _animation_vanish();
+			void _animation_translate_left();
+			void _animation_translate_left_up();
+			void _animation_translate_up();
+			void _animation_translate_right_up();
+			void _animation_translate_right();
+			void _animation_translate_right_down();
+			void _animation_translate_down();
+			void _animation_translate_left_down();
+			void _animation_shrink_left();
+			void _animation_shrink_left_up();
+			void _animation_shrink_up();
+			void _animation_shrink_right_up();
+			void _animation_shrink_right();
+			void _animation_shrink_right_down();
+			void _animation_shrink_down();
+			void _animation_shrink_left_down();
+			void _animation_shrink_center();
+			void _animation_expand_left();
+			void _animation_expand_left_up();
+			void _animation_expand_up();
+			void _animation_expand_right_up();
+			void _animation_expand_right();
+			void _animation_expand_right_down();
+			void _animation_expand_down();
+			void _animation_expand_left_down();
+			void _animation_expand_center();
 
 		protected:
 			static void _bind_methods();
@@ -109,7 +109,7 @@ namespace godot{
 			void set_initial_scale(const Vector2 p_initial_scale);
 			Vector2 get_initial_scale() const;
 
-			void transite();
+			void animate();
 
 			ACTransitionControl();
 			~ACTransitionControl();
