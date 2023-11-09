@@ -12,7 +12,8 @@ namespace godot{
 
 		public:
 			enum Animation {
-				ANIMATION_VANISH,
+				ANIMATION_APPEAR,
+				ANIMATION_DISAPPEAR,
 				ANIMATION_TRANSLATE_LEFT,
 				ANIMATION_TRANSLATE_LEFT_UP,
 				ANIMATION_TRANSLATE_UP,
@@ -43,7 +44,7 @@ namespace godot{
 
 		private:
 			double duration = 1.0;
-			ACTransitionControl::Animation animation = ANIMATION_VANISH;
+			ACTransitionControl::Animation animation = ANIMATION_APPEAR;
 			Tween::EaseType ease = Tween::EASE_IN_OUT;
 			Tween::TransitionType transition = Tween::TRANS_LINEAR;
 
@@ -52,7 +53,8 @@ namespace godot{
 			void _create_tween();
 			void _on_tween_finished();
 
-			void _animation_vanish();
+			void _animation_appear();
+			void _animation_disappear();
 			void _animation_translate_left();
 			void _animation_translate_left_up();
 			void _animation_translate_up();

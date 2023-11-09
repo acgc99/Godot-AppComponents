@@ -42,8 +42,11 @@ void ACTransitionControl::animate(){
 	if(_tween != NULL && _tween->is_running()){
 		_tween->kill();
 	}
-	if(animation == ANIMATION_VANISH){
-		_animation_vanish();
+	if(animation == ANIMATION_APPEAR){
+		_animation_appear();
+	}
+	else if(animation == ANIMATION_DISAPPEAR){
+		_animation_disappear();
 	}
 	else if(animation == ANIMATION_TRANSLATE_LEFT){
 		_animation_translate_left();
@@ -134,7 +137,12 @@ void ACTransitionControl::_on_tween_finished(){
 	emit_signal("finished");
 }
 
-void ACTransitionControl::_animation_vanish(){
+void ACTransitionControl::_animation_appear(){
+	_create_tween();
+	_tween->tween_property(this, "modulate:a", 1.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+void ACTransitionControl::_animation_disappear(){
 	_create_tween();
 	_tween->tween_property(this, "modulate:a", 0.0, duration)->set_ease(ease)->set_trans(transition);
 }
@@ -313,11 +321,12 @@ void ACTransitionControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("_on_tween_finished"), &ACTransitionControl::_on_tween_finished);
 
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
-	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Vanish,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center"), "set_animation", "get_animation");
+	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Appear,Disappear,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center"), "set_animation", "get_animation");
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "ease", PROPERTY_HINT_ENUM, "In,Out,In Out,Out In"), "set_ease", "get_ease");
 	ClassDB::add_property("ACTransitionControl", PropertyInfo(Variant::INT, "transition", PROPERTY_HINT_ENUM, "Linear,Sine,Quint,Quart,Quad,Expo,Elastic,Cubic,Circ,Bounce,Back,Spring"), "set_transition", "get_transition");
 
-	BIND_ENUM_CONSTANT(ANIMATION_VANISH);
+	BIND_ENUM_CONSTANT(ANIMATION_APPEAR);
+	BIND_ENUM_CONSTANT(ANIMATION_DISAPPEAR);
 	BIND_ENUM_CONSTANT(ANIMATION_TRANSLATE_LEFT);
 	BIND_ENUM_CONSTANT(ANIMATION_TRANSLATE_LEFT_UP);
 	BIND_ENUM_CONSTANT(ANIMATION_TRANSLATE_UP);
