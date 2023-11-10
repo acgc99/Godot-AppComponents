@@ -31,20 +31,20 @@ Note: only attributes designed to be modified are listed.
 A `Control` node with a `Tween` for animations designed for transition between pages, pop-ups or many other things.
 
 Notes:
-- You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs and scene tree structure (read about `mouse_filter`). See [Project Showcase](#projectshowcase).
+- You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs and scene tree structure. See `mouse_filter` [docs](https://docs.godotengine.org/en/stable/classes/class_control.html#enum-control-mousefilter)) and [Project Showcase](#projectshowcase).
 - You might need to set a specific set of anchors for the animations that modify size and position to work properly. See [Project Showcase](#projectshowcase).
-- This node uses a `Tween` for animations. When you call `animate`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. Check `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
+- This node uses a `Tween` for animations. When you call `animate`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. See `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
 - Animations modify `position`, `scale` and `modulate.a`. If you want to reset those attributes, do it via code or playing the opposite animation.
-- If you want to make sure that the animation is not called again while is being played (for example a pop-up that is dismissed when it is being shown), use `is_running()` method. This method is important for animations that modify `position` and `scale` because they are based of current `position` and `size`, therefore for example, if you are using `Animation.ANIMATION_TRANSLATE_LEFT` and you call this animation again without waiting the first to end, the final position will be the initial position minus`size.x` minus the quantity of `size.x` that the node had time to move on the first animation. However, you might not want to use this method for animations like `Animation.ANIMATE_APPEAR` and `Animation.ANIMATE_DISAPPEAR`.
+- If you want to make sure that one animation does not start while another is being played (for example a pop-up that is dismissed when it is being shown), use `is_running()` method. This method is important for animations that modify `position` and `scale` because they are based of current `position` and `size`, therefore for example, if you are using `Animation.ANIMATION_TRANSLATE_LEFT` and you call this animation again without waiting the first to end, the final position will be the initial position minus `size.x` minus the quantity of `size.x` that the node had time to move on the first animation. However, you might not want to use this method for animations like `Animation.ANIMATE_APPEAR` and `Animation.ANIMATE_DISAPPEAR`.
 
-Methods:
+#### Methods:
 - `void animate()`. Starts animation.
 - `bool is_running()`. Returns `true` is the animation is running, else `false`.
 
-Signals:
+#### Signals:
 - `finished()`. Emitted when `Tween` animation finishes.
 
-Attributes:
+#### Attributes:
 - `float duarion = 1.0`. Animation duration in seconds.
 - `Animation animation = ANIMATION_APPEAR`. Possible animations: appear/disappear, transition left/left-up/up/right-up/right/right-down/down/left-down/ (node is moved on that direction the same quantity as its width/height), shrink left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to zero shrinking to that corner) and expand left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to 1 growing from that corner).
 - `Tween.EaseType ease = EASE_IN_OUT`.
@@ -56,10 +56,11 @@ Attributes:
 
 It works similar to `TextureRect`, but it requires an URL pointing to some image on the Internet and the specification of image extension.
 
-Image is requested when `url` or `extension` changes, so if you change the image manually (`texture`), it will not be reset, you have to enter the `url` or `extension` again.
+Notes:
+- Image is requested when `url` or `extension` changes, so if you change the image manually (`texture`), it will not be reset, you have to enter the `url` or `extension` again.
+- Large images might require long loading and saving times.
 
-Note that large images might require long loading and saving times.
-
+#### Attributes
 - `String url = ""`. Image URL.
 - `Extension extension = 0`. Image extension. `Image` supported types: `.bmp`, `.jpg`, `.png`, `.tga` and `.webp`.
 
@@ -79,9 +80,9 @@ It is a `VBoxContainer` with no separation between its elements.
 
 A `PanelContainer` with `clip_children_mode = CLIP_CHILDREN_ONLY` to clip its children to its shape.
 
-To make this node work properly, you have to assign a `Theme` and fill a `PanelContainer` type with a `panel` not null. If `panel` has rounded corners and this node has a `TextureRect`/`ColorRect` child that occupies all node, its corners will be rounded.
-
-If your children look semitransparent, it is because of the theme.
+Notes:
+- To make this node work properly, you have to assign a `Theme` and fill a `PanelContainer` type with a `panel` not null. If `panel` has rounded corners and this node has a `TextureRect`/`ColorRect` child that occupies all node, its corners will be rounded.
+- If your children look semitransparent, it is because of the theme.
 
 ## Contributing <a name="contributing"></a>
 
@@ -103,6 +104,14 @@ Anyone is welcomed to open a issue requesting a new component, improving already
   - Constructor and destructor.
 - One empty line between functions.
 - Empty lines must not contain tabs or whitespaces.
+
+### GitHub
+
+- Preferably, one commit per issue.
+- Commit messages must have this structure:
+```
+closes #XX, closes #YY; <description of issue XX>, <description of issue YY>
+```
 
 ### Compiling
 
