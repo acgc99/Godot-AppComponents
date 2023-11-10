@@ -34,12 +34,9 @@ layout_mode = 1
 offset_bottom = 0.0
 
 [node name="Popup" parent="." instance=ExtResource("5_kayft")]
+animation = 1
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-offset_left = 360.0
-offset_top = 640.0
-offset_right = 360.0
-offset_bottom = 640.0
-scale = Vector2(1e-05, 1e-05)
 
 [connection signal="pressed_left" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_left"]
 [connection signal="pressed_right" from="ACPageContainer/NavBar" to="." method="_on_nav_bar_pressed_right"]
