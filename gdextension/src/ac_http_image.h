@@ -27,7 +27,7 @@ namespace godot{
 			HTTPRequest *_http_request;
 
 			void _on_request_completed(int result, int response_code, PackedStringArray headers, PackedByteArray body);
-			void _make_request();
+			void make_request();
 
 		protected:
 			static void _bind_methods();
@@ -38,7 +38,9 @@ namespace godot{
 			
 			void set_extension(const Extension p_extension);
 			Extension get_extension() const;
-			
+
+			void _ready();
+
 			ACHTTPImage();
 			~ACHTTPImage();
 	};

@@ -6,10 +6,14 @@
 
 using namespace godot;
 
-void ACHTTPImage::_make_request(){
-	if(_http_request->is_node_ready() && url != ""){
-		_http_request->request(url);
+void ACHTTPImage::_ready(){
+	if(!Engine::get_singleton()->is_editor_hint()){
+		make_request();
 	}
+}
+
+void ACHTTPImage::make_request(){
+	_http_request->request(url);
 }
 
 void ACHTTPImage::_on_request_completed(int result, int response_code, PackedStringArray headers, PackedByteArray body){
@@ -35,7 +39,6 @@ void ACHTTPImage::_on_request_completed(int result, int response_code, PackedStr
 
 void ACHTTPImage::set_url(const String p_url){
 	url = p_url;
-	_make_request();
 }
 
 String ACHTTPImage::get_url() const {
@@ -44,7 +47,6 @@ String ACHTTPImage::get_url() const {
 
 void ACHTTPImage::set_extension(const ACHTTPImage::Extension p_extension){
 	extension = p_extension;
-	_make_request();
 }
 
 ACHTTPImage::Extension ACHTTPImage::get_extension() const {
@@ -57,6 +59,7 @@ void ACHTTPImage::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("set_extension", "extension"), &ACHTTPImage::set_extension);
 	ClassDB::bind_method(D_METHOD("get_extension"), &ACHTTPImage::get_extension);
 
+	ClassDB::bind_method(D_METHOD("make_request"), &ACHTTPImage::make_request);
 	ClassDB::bind_method(D_METHOD("_on_request_completed"), &ACHTTPImage::_on_request_completed);
 
 	ClassDB::add_property("ACHTTPImage", PropertyInfo(Variant::STRING, "url"), "set_url", "get_url");

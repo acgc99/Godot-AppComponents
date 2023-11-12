@@ -57,8 +57,11 @@ Notes:
 It works similar to `TextureRect`, but it requires an URL pointing to some image on the Internet and the specification of image extension.
 
 Notes:
-- Image is requested when `url` or `extension` changes, so if you change the image manually (`texture`), it will not be reset, you have to enter the `url` or `extension` again.
-- Large images might require long loading and saving times.
+- Image is requested on `_ready`. If you override this function, you can use the method `make_request`.
+- Large images might require long loading/saving times.
+
+#### Methods
+- `void make_request()`. Makes the HTTP request.
 
 #### Attributes
 - `String url = ""`. Image URL.
