@@ -1,6 +1,6 @@
 # App Components
 
-This add-on is a collection of nodes for GUI design. They are intended to be the building blocks for you app, not the final widgets.
+This add-on is a collection of nodes for GUI design. They are intended to be the building blocks for you app and with them you can build the final widgets as scenes.
 
 With these components you design widgets as independent scenes, that are then attached to the pages/screens of your app. At the [Project Showcase](#projectshowcase) you will find a navigation drawer and pop-up example.
 
@@ -16,6 +16,8 @@ Lastly, this add-on has been tested on Windows 11 64-bits, I compiled it for oth
 | License    | [MIT License](./LICENSE.md)     |
 | Author     | [acgc99](https://github.com/acgc99) |
 
+This add-on was born on 6th November 2023.
+
 ## List of components:
 - [ACAnimatedControl](#acanimatedcontrol)
 - [ACHTTPImage](#achttpimage)
@@ -23,8 +25,6 @@ Lastly, this add-on has been tested on Windows 11 64-bits, I compiled it for oth
 - [ACIconButton](#aciconbutton)
 - [ACPageContainer](#acpagecontainer)
 - [ACRoundClippingContainer](#acroundclippingcontainer)
-
-Note: only attributes designed to be modified are listed.
 
 ### `ACAnimatedControl` <a name="acanimatedcontrol"></a>
 
@@ -115,11 +115,26 @@ closes #XX, closes #YY; <description of issue XX>, <description of issue YY>
 
 ### Compiling
 
-The code you provide must be compiled and tested in all OS (if possible). Use:
+Before stable release, the add-on has to be compiled. These are the "recipes" I used:
 ```
-scons platform=windows arch=x86_32
-scons platform=windows arch=x86_64
+scons platform=windows arch=x86_64 target=template_debug
+scons platform=windows arch=x86_64 target=template_release
+scons platform=windows arch=x86_32 target=template_debug
+scons platform=windows arch=x86_32 target=template_release
+
+scons platform=android arch=x86_64 target=template_debug
+scons platform=android arch=x86_64 target=template_release
+scons platform=android arch=arm64 target=template_debug
+scons platform=android arch=arm64 target=template_release
+
+scons platform=macos target=template_debug osxcross_sdk="darwin23"
+scons platform=macos target=template_release osxcross_sdk="darwin23"
+
+scons platform=linux arch=x86_64 target=template_debug
+scons platform=linux arch=x86_64 target=template_release
 ```
+
+This [tutorial](https://www.youtube.com/watch?v=qhGp8YbzJtU) might be helpful is you face compiling.
 
 ## Project Showcase <a name="projectshowcase"></a>
 
