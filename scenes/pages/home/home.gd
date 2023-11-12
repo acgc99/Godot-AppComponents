@@ -6,6 +6,8 @@ extends Control
 
 func _ready() -> void:
 	popup._input_deactivation()
+	popup.position = size/2.0
+	popup.scale = Vector2.ZERO
 
 
 func _on_nav_bar_pressed_left() -> void:

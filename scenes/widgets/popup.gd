@@ -11,14 +11,14 @@ var is_open: bool = false
 func open() -> void:
 	if not is_running():
 		_input_activation()
-		animation = ACAnimatedControl.ANIMATION_APPEAR
+		animation = ACAnimatedControl.ANIMATION_EXPAND_CENTER
 		animate()
 
 
 func close() -> void:
 	if not is_running():
 		_input_deactivation()
-		animation = ACAnimatedControl.ANIMATION_DISAPPEAR
+		animation = ACAnimatedControl.ANIMATION_SHRINK_CENTER
 		animate()
 
 
