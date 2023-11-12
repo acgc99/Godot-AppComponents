@@ -32,7 +32,7 @@ A `Control` node with a `Tween` for animations designed for transition between p
 
 Notes:
 - You might need to set `mouse_filter = MOUSE_FILTER_IGNORE` so that elements below can receive mouse input. This might also apply to this node children. It will depend on your needs and scene tree structure. See `mouse_filter` [docs](https://docs.godotengine.org/en/stable/classes/class_control.html#enum-control-mousefilter)) and [Project Showcase](#projectshowcase).
-- You might need to set a specific set of anchors for the animations that modify size and position to work properly. See [Project Showcase](#projectshowcase).
+- You might need to set a specific set of anchors for the animations that modify size and position to work properly, or specify initial conditions at some `_ready` function. See [Project Showcase](#projectshowcase).
 - This node uses a `Tween` for animations. When you call `animate`, it checks first if the current `Tween` has ended (if any) and if not, it kills current `Tween` and process the new `transite` call. See `Tween` [docs](https://docs.godotengine.org/en/stable/classes/class_tween.html).
 - Animations modify `position`, `scale` and `modulate.a`. If you want to reset those attributes, do it via code or playing the opposite animation.
 - If you want to make sure that one animation does not start while another is being played (for example a pop-up that is dismissed when it is being shown), use `is_running()` method. This method is important for animations that modify `position` and `scale` because they are based of current `position` and `size`, therefore for example, if you are using `Animation.ANIMATION_TRANSLATE_LEFT` and you call this animation again without waiting the first to end, the final position will be the initial position minus `size.x` minus the quantity of `size.x` that the node had time to move on the first animation. However, you might not want to use this method for animations like `Animation.ANIMATE_APPEAR` and `Animation.ANIMATE_DISAPPEAR`.
@@ -142,5 +142,6 @@ The project showcase is in the GitHub repository. It is a showcase of what you c
 
 Notice that:
 - For the `Background` and `Contents` scenes, the size is not the full window size, the `NavBar` height is subtracted. This is not mandatory, but recommended, since these are the dimensions when integrated on `ACPageContainer`.
-- `Popup` has to modify `mouse_filter` dynamically to work properly. See issue [#19](https://github.com/acgc99/Godot-AppComponents/issues/19).
-- `NavDrawer` has a special anchor configuration to work properly. See issue [#18](https://github.com/acgc99/Godot-AppComponents/issues/18).
+- `Popup` has to modify `mouse_filter` dynamically to work properly.
+- `Popup` configuration for animation: [#19](https://github.com/acgc99/Godot-AppComponents/issues/19).
+- `NavDrawer` configuration for animation: [#18](https://github.com/acgc99/Godot-AppComponents/issues/18).
