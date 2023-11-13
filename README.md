@@ -61,7 +61,10 @@ Notes:
 - Large images might require long loading/saving times.
 
 #### Methods
-- `void make_request()`. Makes the HTTP request.
+- `void make_request()`. Makes the HTTP request and loads the image.
+
+#### Signals:
+- `request_finished()`. Emitted when the HTTP request finishes and image is loaded.
 
 #### Attributes
 - `String url = ""`. Image URL.

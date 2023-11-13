@@ -35,6 +35,7 @@ void ACHTTPImage::_on_request_completed(int result, int response_code, PackedStr
 	}
 	ImageTexture *image_texture = memnew(ImageTexture);
 	set_texture(image_texture->create_from_image(image));
+	emit_signal("request_finished");
 }
 
 void ACHTTPImage::set_url(const String p_url){
@@ -70,6 +71,8 @@ void ACHTTPImage::_bind_methods(){
 	BIND_ENUM_CONSTANT(EXTENSION_PNG);
 	BIND_ENUM_CONSTANT(EXTENSION_TGA);
 	BIND_ENUM_CONSTANT(EXTENSION_WEBP);
+
+	ADD_SIGNAL(MethodInfo("request_finished"));
 }
 
 ACHTTPImage::ACHTTPImage(){
