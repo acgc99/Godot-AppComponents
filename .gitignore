@@ -2,7 +2,6 @@
 .godot/
 
 # GDExtension
-gdextension/godot-cpp/
 gdextension/.vscode/
 gdextension/bin/
 gdextension/.sconsign.dblite
