@@ -38,100 +38,6 @@ Tween::TransitionType ACAnimatedControl::get_transition() const {
 	return transition;
 }
 
-bool ACAnimatedControl::is_running() const {
-	return _is_running;
-}
-
-void ACAnimatedControl::animate(){
-	if(_tween != NULL && _tween->is_running()){
-		_tween->kill();
-	}
-	if(animation == ANIMATION_APPEAR){
-		_animation_appear();
-	}
-	else if(animation == ANIMATION_DISAPPEAR){
-		_animation_disappear();
-	}
-	else if(animation == ANIMATION_TRANSLATE_LEFT){
-		_animation_translate_left();
-	}
-	else if(animation == ANIMATION_TRANSLATE_LEFT_UP){
-		_animation_translate_left_up();
-	}
-	else if(animation == ANIMATION_TRANSLATE_UP){
-		_animation_translate_up();
-	}
-	else if(animation == ANIMATION_TRANSLATE_RIGHT_UP){
-		_animation_translate_right_up();
-	}
-	else if(animation == ANIMATION_TRANSLATE_RIGHT){
-		_animation_translate_right();
-	}
-	else if(animation == ANIMATION_TRANSLATE_RIGHT_DOWN){
-		_animation_translate_right_down();
-	}
-	else if(animation == ANIMATION_TRANSLATE_DOWN){
-		_animation_translate_down();
-	}
-	else if(animation == ANIMATION_TRANSLATE_LEFT_DOWN){
-		_animation_translate_left_down();
-	}
-	else if(animation == ANIMATION_SHRINK_LEFT){
-		_animation_shrink_left();
-	}
-	else if(animation == ANIMATION_SHRINK_LEFT_UP){
-		_animation_shrink_left_up();
-	}
-	else if(animation == ANIMATION_SHRINK_UP){
-		_animation_shrink_up();
-	}
-	else if(animation == ANIMATION_SHRINK_RIGHT_UP){
-		_animation_shrink_right_up();
-	}
-	else if(animation == ANIMATION_SHRINK_RIGHT){
-		_animation_shrink_right();
-	}
-	else if(animation == ANIMATION_SHRINK_RIGHT_DOWN){
-		_animation_shrink_right_down();
-	}
-	else if(animation == ANIMATION_SHRINK_DOWN){
-		_animation_shrink_down();
-	}
-	else if(animation == ANIMATION_SHRINK_LEFT_DOWN){
-		_animation_shrink_left_down();
-	}
-	else if(animation == ANIMATION_SHRINK_CENTER){
-		_animation_shrink_center();
-	}
-	else if(animation == ANIMATION_EXPAND_LEFT){
-		_animation_expand_left();
-	}
-	else if(animation == ANIMATION_EXPAND_LEFT_UP){
-		_animation_expand_left_up();
-	}
-	else if(animation == ANIMATION_EXPAND_UP){
-		_animation_expand_up();
-	}
-	else if(animation == ANIMATION_EXPAND_RIGHT_UP){
-		_animation_expand_right_up();
-	}
-	else if(animation == ANIMATION_EXPAND_RIGHT){
-		_animation_expand_right();
-	}
-	else if(animation == ANIMATION_EXPAND_RIGHT_DOWN){
-		_animation_expand_right_down();
-	}
-	else if(animation == ANIMATION_EXPAND_DOWN){
-		_animation_expand_down();
-	}
-	else if(animation == ANIMATION_EXPAND_LEFT_DOWN){
-		_animation_expand_left_down();
-	}
-	else if(animation == ANIMATION_EXPAND_CENTER){
-		_animation_expand_center();
-	}
-}
-
 void ACAnimatedControl::_create_tween(){
 	_tween = create_tween();
 	_tween->connect("finished", Callable(this, "_on_tween_finished"));
@@ -311,6 +217,100 @@ void ACAnimatedControl::_animation_expand_center(){
 	_tween->parallel()->tween_property(this, "position:x", get_position().x - get_size().x/2.0, duration)->set_ease(ease)->set_trans(transition);
 	_tween->parallel()->tween_property(this, "scale:y", 1.0, duration)->set_ease(ease)->set_trans(transition);
 	_tween->parallel()->tween_property(this, "position:y", get_position().y - get_size().y/2.0, duration)->set_ease(ease)->set_trans(transition);
+}
+
+bool ACAnimatedControl::is_running() const {
+	return _is_running;
+}
+
+void ACAnimatedControl::animate(){
+	if(_tween != NULL && _tween->is_running()){
+		_tween->kill();
+	}
+	if(animation == ANIMATION_APPEAR){
+		_animation_appear();
+	}
+	else if(animation == ANIMATION_DISAPPEAR){
+		_animation_disappear();
+	}
+	else if(animation == ANIMATION_TRANSLATE_LEFT){
+		_animation_translate_left();
+	}
+	else if(animation == ANIMATION_TRANSLATE_LEFT_UP){
+		_animation_translate_left_up();
+	}
+	else if(animation == ANIMATION_TRANSLATE_UP){
+		_animation_translate_up();
+	}
+	else if(animation == ANIMATION_TRANSLATE_RIGHT_UP){
+		_animation_translate_right_up();
+	}
+	else if(animation == ANIMATION_TRANSLATE_RIGHT){
+		_animation_translate_right();
+	}
+	else if(animation == ANIMATION_TRANSLATE_RIGHT_DOWN){
+		_animation_translate_right_down();
+	}
+	else if(animation == ANIMATION_TRANSLATE_DOWN){
+		_animation_translate_down();
+	}
+	else if(animation == ANIMATION_TRANSLATE_LEFT_DOWN){
+		_animation_translate_left_down();
+	}
+	else if(animation == ANIMATION_SHRINK_LEFT){
+		_animation_shrink_left();
+	}
+	else if(animation == ANIMATION_SHRINK_LEFT_UP){
+		_animation_shrink_left_up();
+	}
+	else if(animation == ANIMATION_SHRINK_UP){
+		_animation_shrink_up();
+	}
+	else if(animation == ANIMATION_SHRINK_RIGHT_UP){
+		_animation_shrink_right_up();
+	}
+	else if(animation == ANIMATION_SHRINK_RIGHT){
+		_animation_shrink_right();
+	}
+	else if(animation == ANIMATION_SHRINK_RIGHT_DOWN){
+		_animation_shrink_right_down();
+	}
+	else if(animation == ANIMATION_SHRINK_DOWN){
+		_animation_shrink_down();
+	}
+	else if(animation == ANIMATION_SHRINK_LEFT_DOWN){
+		_animation_shrink_left_down();
+	}
+	else if(animation == ANIMATION_SHRINK_CENTER){
+		_animation_shrink_center();
+	}
+	else if(animation == ANIMATION_EXPAND_LEFT){
+		_animation_expand_left();
+	}
+	else if(animation == ANIMATION_EXPAND_LEFT_UP){
+		_animation_expand_left_up();
+	}
+	else if(animation == ANIMATION_EXPAND_UP){
+		_animation_expand_up();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT_UP){
+		_animation_expand_right_up();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT){
+		_animation_expand_right();
+	}
+	else if(animation == ANIMATION_EXPAND_RIGHT_DOWN){
+		_animation_expand_right_down();
+	}
+	else if(animation == ANIMATION_EXPAND_DOWN){
+		_animation_expand_down();
+	}
+	else if(animation == ANIMATION_EXPAND_LEFT_DOWN){
+		_animation_expand_left_down();
+	}
+	else if(animation == ANIMATION_EXPAND_CENTER){
+		_animation_expand_center();
+	}
 }
 
 void ACAnimatedControl::_bind_methods(){

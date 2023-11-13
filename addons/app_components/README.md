@@ -101,11 +101,11 @@ Anyone is welcomed to open a issue requesting a new component, improving already
   - Public enums.
   - Private. Attributes.
   - Protected. `_bind_methods` and `_notification`.
-  - Public. Setters and getters. Setter parameter is called `p_<attribute>`, for each attribute.
+  - Public. Setters and getters. Setter parameter is called `p_<attribute>`, for each attribute. Then `_` methods and the others.
 - In `.cpp`:
-  - Setters and getters
-  - Public methods
-  - Private methods
+  - Setters and getters.
+  - Private methods.
+  - Public methods.
   - `_bind_methods`. Follow same order when binding at `_bind_methods`, then enums and signals at end.
   - Constructor and destructor.
 - One empty line between functions.

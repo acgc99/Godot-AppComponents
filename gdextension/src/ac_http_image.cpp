@@ -6,14 +6,20 @@
 
 using namespace godot;
 
-void ACHTTPImage::_ready(){
-	if(!Engine::get_singleton()->is_editor_hint()){
-		make_request();
-	}
+void ACHTTPImage::set_url(const String p_url){
+	url = p_url;
 }
 
-void ACHTTPImage::make_request(){
-	_http_request->request(url);
+String ACHTTPImage::get_url() const {
+	return url;
+}
+
+void ACHTTPImage::set_extension(const ACHTTPImage::Extension p_extension){
+	extension = p_extension;
+}
+
+ACHTTPImage::Extension ACHTTPImage::get_extension() const {
+	return extension;
 }
 
 void ACHTTPImage::_on_request_completed(int result, int response_code, PackedStringArray headers, PackedByteArray body){
@@ -38,20 +44,14 @@ void ACHTTPImage::_on_request_completed(int result, int response_code, PackedStr
 	emit_signal("request_finished");
 }
 
-void ACHTTPImage::set_url(const String p_url){
-	url = p_url;
+void ACHTTPImage::_ready(){
+	if(!Engine::get_singleton()->is_editor_hint()){
+		make_request();
+	}
 }
 
-String ACHTTPImage::get_url() const {
-	return url;
-}
-
-void ACHTTPImage::set_extension(const ACHTTPImage::Extension p_extension){
-	extension = p_extension;
-}
-
-ACHTTPImage::Extension ACHTTPImage::get_extension() const {
-	return extension;
+void ACHTTPImage::make_request(){
+	_http_request->request(url);
 }
 
 void ACHTTPImage::_bind_methods(){

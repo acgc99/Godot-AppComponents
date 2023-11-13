@@ -88,8 +88,6 @@ namespace godot{
 			static void _bind_methods();
 
 		public:
-			bool is_running() const;
-
 			void set_duration(const double p_duration);
 			double get_duration() const;
 
@@ -102,6 +100,7 @@ namespace godot{
 			void set_ease(const Tween::EaseType p_ease);
 			Tween::EaseType get_ease() const;
 
+			bool is_running() const;
 			void animate();
 
 			ACAnimatedControl();
