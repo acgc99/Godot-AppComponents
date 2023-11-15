@@ -63,8 +63,8 @@ void ACHTTPImage::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("make_request"), &ACHTTPImage::make_request);
 	ClassDB::bind_method(D_METHOD("_on_request_completed"), &ACHTTPImage::_on_request_completed);
 
-	ClassDB::add_property("ACHTTPImage", PropertyInfo(Variant::STRING, "url"), "set_url", "get_url");
-	ClassDB::add_property("ACHTTPImage", PropertyInfo(Variant::INT, "extension", PROPERTY_HINT_ENUM, "bmp,jpg,png,tga,webp"), "set_extension", "get_extension");
+	ADD_PROPERTY(PropertyInfo(Variant::STRING, "url"), "set_url", "get_url");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "extension", PROPERTY_HINT_ENUM, "bmp,jpg,png,tga,webp"), "set_extension", "get_extension");
 
 	BIND_ENUM_CONSTANT(EXTENSION_BMP);
 	BIND_ENUM_CONSTANT(EXTENSION_JPG);

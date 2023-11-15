@@ -419,18 +419,18 @@ void ACAnimatedControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("pause_animation"), &ACAnimatedControl::pause_animation);
 	ClassDB::bind_method(D_METHOD("kill_animation"), &ACAnimatedControl::kill_animation);
 
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Appear,Disappear,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center,Custom"), "set_animation", "get_animation");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::INT, "ease", PROPERTY_HINT_ENUM, "In,Out,In Out,Out In"), "set_ease", "get_ease");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::INT, "transition", PROPERTY_HINT_ENUM, "Linear,Sine,Quint,Quart,Quad,Expo,Elastic,Cubic,Circ,Bounce,Back,Spring"), "set_transition", "get_transition");
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Appear,Disappear,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center,Custom"), "set_animation", "get_animation");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "ease", PROPERTY_HINT_ENUM, "In,Out,In Out,Out In"), "set_ease", "get_ease");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "transition", PROPERTY_HINT_ENUM, "Linear,Sine,Quint,Quart,Quad,Expo,Elastic,Cubic,Circ,Bounce,Back,Spring"), "set_transition", "get_transition");
 	ADD_SUBGROUP("Initial", "initial");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::FLOAT, "initial_modulate_a", PROPERTY_HINT_RANGE, "0.0,1.0"), "set_initial_modulate_a", "get_initial_modulate_a");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::VECTOR2, "initial_position", PROPERTY_HINT_NONE, "suffix:px"), "set_initial_position", "get_initial_position");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::VECTOR2, "initial_scale"), "set_initial_scale", "get_initial_scale");
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "initial_modulate_a", PROPERTY_HINT_RANGE, "0.0,1.0"), "set_initial_modulate_a", "get_initial_modulate_a");
+	ADD_PROPERTY(PropertyInfo(Variant::VECTOR2, "initial_position", PROPERTY_HINT_NONE, "suffix:px"), "set_initial_position", "get_initial_position");
+	ADD_PROPERTY(PropertyInfo(Variant::VECTOR2, "initial_scale"), "set_initial_scale", "get_initial_scale");
 	ADD_SUBGROUP("Final", "final");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::FLOAT, "final_modulate_a", PROPERTY_HINT_RANGE, "0.0,1.0"), "set_final_modulate_a", "get_final_modulate_a");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::VECTOR2, "final_position", PROPERTY_HINT_NONE, "suffix:px"), "set_final_position", "get_final_position");
-	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::VECTOR2, "final_scale"), "set_final_scale", "get_final_scale");
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "final_modulate_a", PROPERTY_HINT_RANGE, "0.0,1.0"), "set_final_modulate_a", "get_final_modulate_a");
+	ADD_PROPERTY(PropertyInfo(Variant::VECTOR2, "final_position", PROPERTY_HINT_NONE, "suffix:px"), "set_final_position", "get_final_position");
+	ADD_PROPERTY(PropertyInfo(Variant::VECTOR2, "final_scale"), "set_final_scale", "get_final_scale");
 
 	BIND_ENUM_CONSTANT(ANIMATION_APPEAR);
 	BIND_ENUM_CONSTANT(ANIMATION_DISAPPEAR);
