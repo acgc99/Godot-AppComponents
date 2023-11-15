@@ -39,6 +39,9 @@ Notes:
 
 #### Methods:
 - `void animate()`. Starts animation.
+- `void resume_animation()`. Resumes paused animation.
+- `void pause_animation()`. Pauses animation.
+- `void kill_animation()`. Kills animation `Tween`.
 - `bool is_running()`. Returns `true` is the animation is running, else `false`.
 
 #### Signals:
@@ -46,9 +49,15 @@ Notes:
 
 #### Attributes:
 - `float duarion = 1.0`. Animation duration in seconds.
-- `Animation animation = ANIMATION_APPEAR`. Possible animations: appear/disappear, transition left/left-up/up/right-up/right/right-down/down/left-down/ (node is moved on that direction the same quantity as its width/height), shrink left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to zero shrinking to that corner) and expand left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to 1 growing from that corner).
+- `Animation animation = ANIMATION_APPEAR`. Possible animations: appear/disappear, transition left/left-up/up/right-up/right/right-down/down/left-down/ (node is moved on that direction the same quantity as its width/height), shrink left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to zero shrinking to that corner), expand left/left-up/up/right-up/right/right-down/down/left-down/center (node is scaled up to 1 growing from that corner) and custom. For the custom animation, `initial_modulate_a`, `initial_position`, `initial_scale`, `final_modulate_a`, `final_position` and `final_scale` used.
 - `Tween.EaseType ease = EASE_IN_OUT`.
 - `Tween.TransitionType transition = Tween.TRANS_LINEAR`.
+- `float initial_modulate_a = 1.0`. Initial `modulate.a` for custom animation.
+- `Vector2 initial_position = Vector2(0, 0)`. Initial `position` for custom animation.
+- `Vector2 initial_scale = Vector2(1, 1)`. Initial `scale` for custom animation.
+- `float final_modulate_a = 1.0`. Final `modulate.a` for custom animation.
+- `Vector2 final_position = Vector2(0, 0)`. Final `position` for custom animation.
+- `Vector2 final_scale = Vector2(1, 1)`. Final `scale` for custom animation.
 
 ![tweening_cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp) 
 
