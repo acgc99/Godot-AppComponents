@@ -419,7 +419,7 @@ void ACAnimatedControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("pause_animation"), &ACAnimatedControl::pause_animation);
 	ClassDB::bind_method(D_METHOD("kill_animation"), &ACAnimatedControl::kill_animation);
 
-	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,1.0,or_greater"), "set_duration", "get_duration");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Appear,Disappear,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center,Custom"), "set_animation", "get_animation");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "ease", PROPERTY_HINT_ENUM, "In,Out,In Out,Out In"), "set_ease", "get_ease");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "transition", PROPERTY_HINT_ENUM, "Linear,Sine,Quint,Quart,Quad,Expo,Elastic,Cubic,Circ,Bounce,Back,Spring"), "set_transition", "get_transition");
