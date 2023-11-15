@@ -39,7 +39,8 @@ namespace godot{
 				ANIMATION_EXPAND_RIGHT_DOWN,
 				ANIMATION_EXPAND_DOWN,
 				ANIMATION_EXPAND_LEFT_DOWN,
-				ANIMATION_EXPAND_CENTER
+				ANIMATION_EXPAND_CENTER,
+				ANIMATION_CUSTOM
 			};
 
 		private:
@@ -47,6 +48,12 @@ namespace godot{
 			ACAnimatedControl::Animation animation = ANIMATION_APPEAR;
 			Tween::EaseType ease = Tween::EASE_IN_OUT;
 			Tween::TransitionType transition = Tween::TRANS_LINEAR;
+			double initial_modulate_a = 1.0;
+			Vector2 initial_position = Vector2(0, 0);
+			Vector2 initial_scale = Vector2(1, 1);
+			double final_modulate_a = 1.0;
+			Vector2 final_position = Vector2(0, 0);
+			Vector2 final_scale = Vector2(1, 1);
 
 			Ref<Tween> _tween;
 
@@ -81,6 +88,7 @@ namespace godot{
 			void _animation_expand_down();
 			void _animation_expand_left_down();
 			void _animation_expand_center();
+			void _animation_custom();
 
 		protected:
 			static void _bind_methods();
@@ -97,6 +105,24 @@ namespace godot{
 
 			void set_ease(const Tween::EaseType p_ease);
 			Tween::EaseType get_ease() const;
+
+			void set_initial_modulate_a(const double p_initial_modulate_a);
+			double get_initial_modulate_a() const;
+
+			void set_initial_position(const Vector2 p_initial_position);
+			Vector2 get_initial_position() const;
+
+			void set_initial_scale(const Vector2 p_initial_scale);
+			Vector2 get_initial_scale() const;
+
+			void set_final_modulate_a(const double p_final_modulate_a);
+			double get_final_modulate_a() const;
+
+			void set_final_position(const Vector2 p_final_position);
+			Vector2 get_final_position() const;
+
+			void set_final_scale(const Vector2 p_final_scale);
+			Vector2 get_final_scale() const;
 
 			bool is_running() const;
 			void animate();
