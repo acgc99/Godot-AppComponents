@@ -39,6 +39,9 @@ Notes:
 
 #### Methods:
 - `void animate()`. Starts animation.
+- `void resume_animation()`. Resumes paused animation.
+- `void pause_animation()`. Pauses animation.
+- `void kill_animation()`. Kills animation `Tween`.
 - `bool is_running()`. Returns `true` is the animation is running, else `false`.
 
 #### Signals:

@@ -43,8 +43,6 @@ namespace godot{
 			};
 
 		private:
-			bool _is_running = false;
-
 			double duration = 1.0;
 			ACAnimatedControl::Animation animation = ANIMATION_APPEAR;
 			Tween::EaseType ease = Tween::EASE_IN_OUT;
@@ -102,6 +100,9 @@ namespace godot{
 
 			bool is_running() const;
 			void animate();
+			void resume_animation();
+			void pause_animation();
+			void kill_animation();
 
 			ACAnimatedControl();
 			~ACAnimatedControl();

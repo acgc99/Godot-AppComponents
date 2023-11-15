@@ -41,12 +41,10 @@ Tween::TransitionType ACAnimatedControl::get_transition() const {
 void ACAnimatedControl::_create_tween(){
 	_tween = create_tween();
 	_tween->connect("finished", Callable(this, "_on_tween_finished"));
-	_is_running = true;
 }
 
 void ACAnimatedControl::_on_tween_finished(){
 	emit_signal("finished");
-	_is_running = false;
 }
 
 void ACAnimatedControl::_animation_appear(){
@@ -220,7 +218,10 @@ void ACAnimatedControl::_animation_expand_center(){
 }
 
 bool ACAnimatedControl::is_running() const {
-	return _is_running;
+	if(_tween != NULL){
+		return _tween->is_running();
+	}
+	return false;
 }
 
 void ACAnimatedControl::animate(){
@@ -313,6 +314,18 @@ void ACAnimatedControl::animate(){
 	}
 }
 
+void ACAnimatedControl::resume_animation(){
+	_tween->play();
+}
+
+void ACAnimatedControl::pause_animation(){
+	_tween->pause();
+}
+
+void ACAnimatedControl::kill_animation(){
+	_tween->kill();
+}
+
 void ACAnimatedControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("set_duration", "duration"), &ACAnimatedControl::set_duration);
 	ClassDB::bind_method(D_METHOD("get_duration"), &ACAnimatedControl::get_duration);
@@ -322,10 +335,13 @@ void ACAnimatedControl::_bind_methods(){
 	ClassDB::bind_method(D_METHOD("get_ease"), &ACAnimatedControl::get_ease);
 	ClassDB::bind_method(D_METHOD("set_transition", "transition"), &ACAnimatedControl::set_transition);
 	ClassDB::bind_method(D_METHOD("get_transition"), &ACAnimatedControl::get_transition);
+	ClassDB::bind_method(D_METHOD("_on_tween_finished"), &ACAnimatedControl::_on_tween_finished);
 
 	ClassDB::bind_method(D_METHOD("is_running"), &ACAnimatedControl::is_running);
 	ClassDB::bind_method(D_METHOD("animate"), &ACAnimatedControl::animate);
-	ClassDB::bind_method(D_METHOD("_on_tween_finished"), &ACAnimatedControl::_on_tween_finished);
+	ClassDB::bind_method(D_METHOD("resume_animation"), &ACAnimatedControl::resume_animation);
+	ClassDB::bind_method(D_METHOD("pause_animation"), &ACAnimatedControl::pause_animation);
+	ClassDB::bind_method(D_METHOD("kill_animation"), &ACAnimatedControl::kill_animation);
 
 	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::FLOAT, "duration", PROPERTY_HINT_RANGE, "0.0,2.0,0.5,or_greater"), "set_duration", "get_duration");
 	ClassDB::add_property("ACAnimatedControl", PropertyInfo(Variant::INT, "animation", PROPERTY_HINT_ENUM, "Appear,Disappear,Translate Left,Translate Left Up,Translate Up,Translate Right Up,Translate Right,Translate Right Down,Translate Down,Translate Left Down,Shrink Left,Shrink Left Up,Shrink Up,Shrink Right Up,Shrink Right,Shrink Right Down,Shrink Down,Shrink Left Down,Shrink Center, Expand Left,Expand Left Up,Expand Up,Expand Right Up,Expand Right,Expand Right Down,Expand Down,Expand Left Down,Expand Center"), "set_animation", "get_animation");
